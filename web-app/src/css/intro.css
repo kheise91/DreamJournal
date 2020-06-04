@@ -1,9 +1,68 @@
-div#intro-main {
+html, body, div#root {
   height: 100%;
   width: 100%;
-  background: url('../images/background.jpg') no-repeat center center fixed;
-  background-size: cover;
+  background: none;
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (max-width: 992px) { div#intro-main { background-position-x: 65%; } }
+div#introMain {
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a;
+  z-index: 1;
+}
+
+div#bgImg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: url('../images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: 2;
+  opacity: 0;
+}
+div#bgImg.fade-in {
+  transition: opacity 1.5s ease-in;
+  opacity: .66;
+}
+
+div#introMain > .title-text {
+  color: white;
+  text-align: center;
+  font-variant: petite-caps;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  line-height: normal;
+  opacity: 0;
+}
+div#introMain > .title-text.fade-in {
+  transition: opacity 1.5s ease-in;
+  opacity: 1;
+}
+
+/* Phone Screen and smaller */
+@media only screen and (max-width: 600px) {
+  div#bgImg {
+    background-position-x: 65%;
+  }
+  div#introMain > h1.title-text { top: 20%; font-size: 5rem; }
+  div#introMain > h3.title-text { top: 28%; font-size: 2.5rem; }
+}
+
+/* Large Phones and Tablets */
+@media only screen and (min-width: 601px) {
+  div#bgImg {
+    background-position-x: 67%;
+  }
+  div#introMain > h1.title-text { top: 18%; font-size: 6rem; }
+  div#introMain > h3.title-text { top: 27%; font-size: 3.5rem; }
+}
+
+/* Laptop and Desktops */
+@media only screen and (min-width: 992px) {
+  div#bgImg {
+    background-position-x: center;
+  }
+  div#introMain > h1.title-text { top: 15%; font-size: 7rem; }
+  div#introMain > h3.title-text { top: 25%; font-size: 4rem; }
+}
